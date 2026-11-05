@@ -60,7 +60,7 @@ void sendCustomRF() {
 
         if (!readSubFile(filesystem, filepath, data)) continue;
 
-        if (data.protocol == "RcSwitch") {
+        if (data.protocol == "RcSwitch" || data.protocol == "KeeLoq") {
             loopEmulate(data);
         } else {
             txSubFile(data);
@@ -524,7 +524,7 @@ void rfTransmitRawBits(RfCodes data) {
 
 // Transmit a 0-terminated RAW timings array (signed µs) via RMT. Signature
 // unchanged (1 repetition, as before).
-void rfTransmitRawTimings(int *ptrtransmittimings) {
-    if (!ptrtransmittimings) return;
-    rf_tx_raw_timings(ptrtransmittimings);
+void rfTransmitRawTimings(int *ptrtransmittings) {
+    if (!ptrtransmittings) return;
+    rf_tx_raw_timings(ptrtransmittings);
 }
