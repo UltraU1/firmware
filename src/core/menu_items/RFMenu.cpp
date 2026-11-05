@@ -6,6 +6,7 @@
 #include "modules/rf/rf_bruteforce.h"
 #include "modules/rf/rf_jammer.h"
 #include "modules/rf/rf_listen.h"
+#include "modules/rf/rf_rolling.h"
 #include "modules/rf/rf_scan.h"
 #include "modules/rf/rf_send.h"
 #include "modules/rf/rf_utils.h"
@@ -28,6 +29,7 @@ void RFMenu::optionsMenu() {
         {"Listen",          rf_listen                 }, // dev_eclipse
 #endif
         {"Bruteforce",      rf_bruteforce             }, // dev_eclipse
+        {"Rolling Codes",   rf_rolling                },
         {"Jammer",          [=]() { RFJammer(true); } },
 #endif
         {"Config",          [this]() { configMenu(); }},
